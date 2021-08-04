@@ -1,6 +1,7 @@
 package ejercicio4;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -19,12 +20,28 @@ public class Agenda {
 		System.out.println("Ingrese el nombre de la persona");
 		nombre=input.nextLine();
 	    System.out.println("Ingrese el celular de la persona");
-	    celular=input.nextInt();
+	    celular=ingresaNumero();
 	    input.nextLine();
 	    System.out.println("Ingrese la direccion de la persona");
 	    direccion=input.nextLine();
 		contactos.add(new Persona(nombre, celular, direccion));
 	}
+	
+	public int ingresaNumero () {
+		int numero=0;
+		boolean ok=false;
+		while (!ok) {
+			try {
+				 numero =input.nextInt();
+				 ok=true;
+				} catch (InputMismatchException ime) {
+					input.nextLine();
+				 System.out.println("Datos invalidos. Ingrese el celular de la persona");
+				} 
+		}
+		return numero;
+	}
+	
 	
 	public void imprimeListaContactos() {
 		System.out.println("Su lista de contactos actualizada es: ");
