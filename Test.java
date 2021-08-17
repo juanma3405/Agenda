@@ -32,5 +32,4 @@ public class Test {
 		}
 		while (!respuesta.equalsIgnoreCase("fin"));
 	}
-
 }

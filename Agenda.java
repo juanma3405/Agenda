@@ -44,7 +44,7 @@ public class Agenda {
 	
 	
 	public void imprimeListaContactos() {
-		System.out.println("Su lista de contactos actualizada es: ");
+		System.out.println("Su lista de contactos actualizada es:");
 		 for (int i=0; i<contactos.size(); i++) {
 				 System.out.println(contactos.get(i).toString());	 
 		 }
@@ -72,13 +72,15 @@ public class Agenda {
 	}
 	
 	public void buscarPersonaPorNombre(String nombre) {
+		boolean buscado = false;
 		 for (int i=0; i<contactos.size(); i++) {
 			 if (nombre.equalsIgnoreCase(contactos.get(i).getNombre())){
 				 System.out.println(contactos.get(i).toString());
-			 }
-			 else {
-					System.out.println("No existe la persona en la agenda");
-				}
+				 buscado = true;
+			 }	
 		 }
+		 if (!buscado) {
+				System.out.println("No existe la persona en la agenda");
+			}
 	}
 }
